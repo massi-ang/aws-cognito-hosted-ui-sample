@@ -24,8 +24,19 @@ const pool = {
     HTTPS_REDIRECT_GW_URI: ''
 }
 ```
+6. Create a [REST API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html) using Cognito authentication
 
+7. Customize the `callApi` method in `.src/views/Code.vue`
 
+```
+        callApi: function() {
+            var api_gateway_url = 'https://xxxxxxxxxxx.execute-api.eu-west-1.amazonaws.com/demo/';
+            axios.get(api_gateway_url, {
+                    headers: { 'Authorization' : this.idToken }
+            }).then((data) => console.log(data)).catch((err) => console.log(err))
+
+        }
+```
 
 ## Project setup
 ```

@@ -48,7 +48,11 @@ export default {
             }).catch(console.log)
         },
         callApi: function() {
-            
+            var api_gateway_url = 'https://xxxxxxxxxxx.execute-api.eu-west-1.amazonaws.com/demo/';
+            axios.get(api_gateway_url, {
+                    headers: { 'Authorization' : this.idToken }
+            }).then((data) => console.log(data)).catch((err) => console.log(err))
+
         }
        
     } 
