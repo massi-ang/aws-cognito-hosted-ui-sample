@@ -9,7 +9,13 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
-  },
+    },
+    {
+      path: '/done',
+      name: 'Code',
+      component: () => import(/* webpackChunkName: "code" */ '../views/Code.vue'), props: (route) => ({ query: route.query }),
+    },
+    
   {
     path: '/about',
     name: 'About',
